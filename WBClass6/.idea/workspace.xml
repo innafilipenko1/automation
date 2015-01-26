@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e0436254-64fa-41b9-a695-d2f731e5eca7" name="Default" comment="Test commit 2">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chromedriver.exe" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/RegistrationForm.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/googleTranslatorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/AutPractice.java" afterPath="$PROJECT_DIR$/src/com/company/AutPractice.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/FirstWebDriver.java" afterPath="$PROJECT_DIR$/src/com/company/FirstWebDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GitTestProject/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../GitTestProject/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WBClass6.iws" />
@@ -463,7 +458,13 @@
       <option name="project" value="LOCAL" />
       <updated>1422011641466</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added googleTranslatorTest, RegistrationForm classes">
+      <created>1422287388139</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1422287388139</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -512,7 +513,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Test commit 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test commit 2" />
+    <MESSAGE value="Added googleTranslatorTest, RegistrationForm classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added googleTranslatorTest, RegistrationForm classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
