@@ -14,10 +14,11 @@ public class FirstWebDriver {
 
     public static void main(String[] args) {
 
-//        System.setProperty("webdriver.chrome.driver",
-//                "C:/Users/ifilipenko/Dropbox/_IdeaProjects/drivers/chromedriver_win32/chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver",
+      System.setProperty("webdriver.chrome.driver",
+                "C:/Users/ifilipenko/Dropbox/_IdeaProjects/drivers/chromedriver_win32/chromedriver.exe");
+  /*        System.setProperty("webdriver.chrome.driver",
                 "D:/aut5/tools/chromedriver.exe");
+    */
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--lang=en-us");
@@ -32,8 +33,8 @@ public class FirstWebDriver {
         WebElement button1 = driver.findElement(By.name("btnG"));
         button1.click();
 
-        while(driver.findElements(By.tagName("a")).size() == 0);
-        WebElement link = driver.findElement(By.id("res")).findElement(By.tagName("a"));
+        while(driver.findElements(By.id("ires")).size() == 0);
+        WebElement link = driver.findElement(By.id("ires")).findElement(By.tagName("a"));;
 
         String linkhref = link.getAttribute("href");
         System.out.println(linkhref);
@@ -41,7 +42,7 @@ public class FirstWebDriver {
         if(linkhref.equals("https://www.java.com/ru/")) System.out.println("Test passed");
         else System.out.println("Test failed");
 
-        //driver.quit();
+      driver.quit();
 
         }
 
