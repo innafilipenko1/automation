@@ -20,12 +20,12 @@ public class AutPractice {
 
     public static void main(String[] args) throws Exception {
 
+       // System.setProperty("webdriver.chrome.driver",
+        //        "C:/Users/ifilipenko/Dropbox/_IdeaProjects/drivers/chromedriver_win32/chromedriver.exe");
+
+
         System.setProperty("webdriver.chrome.driver",
-                "C:/Users/ifilipenko/Dropbox/_IdeaProjects/drivers/chromedriver_win32/chromedriver.exe");
-
-
-//        System.setProperty("webdriver.chrome.driver",
-//                "D:/aut5/tools/chromedriver.exe");
+                "D:/aut5/tools/chromedriver.exe");
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--lang=en-us");
@@ -70,10 +70,11 @@ public class AutPractice {
 
 //      attaching a file
         WebElement uploadPhoto = driver.findElement(By.id("photo"));
-        uploadPhoto.click();;
-        uploadPhoto.sendKeys("C:/Users/ifilipenko/Dropbox/Books/LoginError.png");
+        uploadPhoto.click();
+        Thread.sleep(2000);
+        //uploadPhoto.sendKeys("C:/Users/ifilipenko/Dropbox/Books/LoginError.png");
 
-       // StringSelection ss = new StringSelection("C:/Users/ifilipenko/Dropbox/Books/LoginError.png");
+          // StringSelection ss = new StringSelection("C:/Users/ifilipenko/Dropbox/Books/LoginError.png");
         StringSelection ss = new StringSelection("LoginError.png");
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 //        imitate mouse events like ENTER, CTRL+C, CTRL+V
