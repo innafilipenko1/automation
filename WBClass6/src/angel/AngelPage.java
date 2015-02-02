@@ -28,20 +28,13 @@ public class AngelPage {
 
     public static void setMasterPassword(WebDriver driver, String pw) {
         WebElement masterPassword = driver.findElement(By.xpath(xPathMasterPassword));
+        masterPassword.clear();
         masterPassword.sendKeys(pw);
-    }
-
-    public static void clearMasterPassword(WebDriver driver) throws AWTException{
-        WebElement masterPassword = driver.findElement(By.xpath(xPathMasterPassword));
-/*
-        Robot robot = new Robot();
-        robot.keyPress(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_A);
-        robot.keyPress(KeyEvent.VK_DELETE);*/
     }
 
     public static void setSiteName(WebDriver driver, String name) {
         WebElement siteName = driver.findElement(By.xpath(xPathSiteName));
+        siteName.clear();
         siteName.sendKeys(name);
     }
 
@@ -62,8 +55,8 @@ public class AngelPage {
 
     public static String getGeneratedPassword(WebDriver driver) {
         WebElement generatePassword = driver.findElement(By.xpath(xPathGeneratePassword));
-        return generatePassword.getAttribute("value");
-    }
+    return generatePassword.getAttribute("value");
+}
 
 
 }

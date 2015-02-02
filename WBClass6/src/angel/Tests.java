@@ -33,38 +33,49 @@ public class Tests {
 
     @Before
     public void Init() {
-/*        System.setProperty("webdriver.chrome.driver",
-                "D:/aut5/tools/chromedriver.exe");*/
         System.setProperty("webdriver.chrome.driver",
-                "C:/Users/ifilipenko/Dropbox/_IdeaProjects/drivers/chromedriver_win32/chromedriver.exe");
+                "D:/aut5/tools/chromedriver.exe");
+/*        System.setProperty("webdriver.chrome.driver",
+                "C:/Users/ifilipenko/Dropbox/_IdeaProjects/drivers/chromedriver_win32/chromedriver.exe");*/
         driver = new ChromeDriver();
         AngelPage.open(driver);
         error = "";
     }
 
+
     @Test //При заполнении мастер пароля 32 символами, и сайт 128 символами, они все оказываются введенными в поля.
-    public void checkPWAndSiteNameMaxLenght() {
+    public void checkPWAndSiteNameMaxLenght() throws InterruptedException {
         int pwMaxLenght = 32;
         int siteNameMaxLenght = 128;
         String n = "1";
-        int count = 0;
+        String x1 = "";
+        String x2 = "";
+
+        Thread.sleep(1000);
 
         for (int i = 0; i < pwMaxLenght; i++) {
-            AngelPage.setMasterPassword(driver, n);
-            count++;
+            x1 = x1 + n;
         }
-       //System.out.println(AngelPage.getMasterPassword(driver));
+        // System.out.println(x1);
+        AngelPage.setMasterPassword(driver, x1);
 
         for (int i = 0; i < siteNameMaxLenght; i++) {
-            AngelPage.setSiteName(driver, n);
+            x2 = x2 + n;
         }
-        //System.out.println(AngelPage.getSiteName(driver));
+        AngelPage.setSiteName(driver, x2);
 
+        String s1 = AngelPage.getMasterPassword(driver);
+        String s2 = AngelPage.getSiteName(driver);
+        int a = s1.length();
+        int b = s2.length();
 
+        Assert.assertEquals(pwMaxLenght, a);
+        Assert.assertEquals(siteNameMaxLenght, b);
 
     }
 
-    @Ignore
+
+
     @Test //4. При заполнении мастер пароля и сайта всевозможными символами, они все оказываются введенными в поля.
     public void checkPWAndSiteLenght() {
         String random = "1234567890!@#$%^&*()qwertyuiopйцукенгшщ";
@@ -75,7 +86,7 @@ public class Tests {
     }
 
 
-    @Ignore
+
     @Test //1. При пустом мастер пароле и заполненном сайте  - пароль генерится.
     public void emptyMaster_PasswordGenerates() {
         AngelPage.setMasterPassword(driver, "");
@@ -86,21 +97,23 @@ public class Tests {
         error = "";
     }
 
-    @Ignore
     @Test //При мастер пароле: asdasd и сайте: angel.net сгенеренный пароль: B9ya7yayeK/Zn@1a
-    /*
-    * Как очистить поля после ввода?
-    * */
-    public void sameGenPassword_samePWAndSite() throws AWTException {
+    public void sameGenPassword_samePWAndSite() {
         AngelPage.setMasterPassword(driver, "asdasd");
         AngelPage.setSiteName(driver, "angel.net");
         AngelPage.clickGenerate(driver);
+
         String lastPW = AngelPage.getGeneratedPassword(driver);
-        AngelPage.clearMasterPassword(driver);
-/*        AngelPage.setMasterPassword(driver, "asdasd");
+        System.out.println(lastPW);
+
+        AngelPage.setMasterPassword(driver, "asdasd");
         AngelPage.setSiteName(driver, "angel.net");
         AngelPage.clickGenerate(driver);
-        Assert.assertEquals(lastPW,AngelPage.getGeneratedPassword(driver));*/
+
+        String lastPW2 = AngelPage.getGeneratedPassword(driver);
+        System.out.println(lastPW2);
+
+        Assert.assertEquals(lastPW, AngelPage.getGeneratedPassword(driver));
     }
 
 
@@ -109,6 +122,6 @@ public class Tests {
         if (!error.equals("")) {
             System.out.println(error);
         }
-        //driver.quit();
+        driver.quit();
     }
 }
