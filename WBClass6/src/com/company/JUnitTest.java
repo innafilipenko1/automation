@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.Test;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -21,7 +22,7 @@ import java.io.IOException;
 
 
 @RunWith(JUnit4.class)
-public class JUnitTes {
+public class JUnitTest {
 
     private WebDriver driver;
     private boolean testPassed;
@@ -50,6 +51,11 @@ public class JUnitTes {
         driver.quit();
     }
 
+    @Test
+    public void MyTest() {
+        RegistrationFormCore.setFirstName(driver, "Oleksii");
+        testPassed = true;
+    }
 
 
 

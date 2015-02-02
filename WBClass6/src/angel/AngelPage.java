@@ -1,8 +1,12 @@
 package angel;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 /**
  * Created by user on 1/30/15.
@@ -27,9 +31,28 @@ public class AngelPage {
         masterPassword.sendKeys(pw);
     }
 
+    public static void clearMasterPassword(WebDriver driver) throws AWTException{
+        WebElement masterPassword = driver.findElement(By.xpath(xPathMasterPassword));
+/*
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_A);
+        robot.keyPress(KeyEvent.VK_DELETE);*/
+    }
+
     public static void setSiteName(WebDriver driver, String name) {
         WebElement siteName = driver.findElement(By.xpath(xPathSiteName));
         siteName.sendKeys(name);
+    }
+
+    public static String getSiteName(WebDriver driver) {
+        WebElement siteName = driver.findElement(By.xpath(xPathSiteName));
+        return siteName.getAttribute("value");
+    }
+
+    public static String getMasterPassword(WebDriver driver) {
+        WebElement masterPassword = driver.findElement(By.xpath(xPathMasterPassword));
+        return masterPassword.getAttribute("value");
     }
 
     public static void clickGenerate(WebDriver driver) {
@@ -37,7 +60,7 @@ public class AngelPage {
         generate.click();
     }
 
-    public static String getMasterPassword(WebDriver driver) {
+    public static String getGeneratedPassword(WebDriver driver) {
         WebElement generatePassword = driver.findElement(By.xpath(xPathGeneratePassword));
         return generatePassword.getAttribute("value");
     }
